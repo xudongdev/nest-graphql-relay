@@ -1,12 +1,15 @@
 import { Field, InputType } from "@nestjs/graphql";
 
-import { Direction } from "../enums/direction.enum";
+import { OrderDirection } from "../enums/order-direction.enum";
 
 @InputType()
 export class Ordering {
   @Field()
-  sort: string;
+  field: string;
 
-  @Field(() => Direction, { nullable: true, defaultValue: Direction.ASC })
-  direction?: Direction;
+  @Field(() => OrderDirection, {
+    nullable: true,
+    defaultValue: OrderDirection.ASC,
+  })
+  direction?: OrderDirection;
 }

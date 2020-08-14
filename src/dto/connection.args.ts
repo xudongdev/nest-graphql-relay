@@ -17,6 +17,6 @@ export class ConnectionArgs implements ConnectionArguments {
   @Field(() => Int, { nullable: true })
   last?: number;
 
-  @Field(() => [Ordering], { nullable: "itemsAndList" })
-  orderBy?: Ordering[];
+  @Field(() => Ordering, { nullable: true })
+  orderBy?: Ordering;
 }

@@ -2,7 +2,7 @@ export * from "./dto/connection.args";
 export * from "./dto/ordering.input";
 export * from "./dto/page-info.object";
 export * from "./dto/query-connection.args";
-export * from "./enums/direction.enum";
+export * from "./enums/order-direction.enum";
 export * from "./interfaces/connection.interface";
 export * from "./utils/connection-from-array-slice";
 export * from "./utils/create-connection";

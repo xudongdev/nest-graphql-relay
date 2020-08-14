@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import { Type } from "@nestjs/common";
 import { Field, Int, ObjectType } from "@nestjs/graphql";
 import * as Relay from "graphql-relay";
@@ -18,11 +17,14 @@ export function createConnection<T>(NodeType: Type<T>): Type<Connection<T>> {
 
   @ObjectType({ isAbstract: true })
   class AbstractConnection implements Connection<T> {
-    @Field(() => [Edge])
-    edges!: Edge[];
+    @Field(() => [Edge], { nullable: true })
+    edges: Edge[];
+
+    @Field(() => [NodeType], { nullable: true })
+    nodes: T[];
 
     @Field()
-    pageInfo!: PageInfo;
+    pageInfo: PageInfo;
 
     @Field(() => Int, { nullable: true })
     totalCount?: number;
